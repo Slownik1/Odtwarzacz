@@ -11,9 +11,30 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.OutputStreamWriter;
+import java.nio.charset.StandardCharsets;
+
 public class MainActivity extends AppCompatActivity {
 
-    String text="";
+    public void Write(View v){
+        try{
+            FileOutputStream file_out = openFileOutput("zapis.txt", MODE_PRIVATE);
+            OutputStreamWriter out_writer = new OutputStreamWriter(file_out);
+            EditText text=(EditText)findViewById(R.id.editTextSave) ;
+
+            String textString = text.getText().toString();
+
+            out_writer.write(textString);
+            out_writer.close();
+
+            Toast.makeText(this,"Zapisano", Toast.LENGTH_LONG).show();
+
+        } catch (Exception e) {
+            Toast.makeText(this,"BLAD", Toast.LENGTH_LONG).show();;
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
                     Sound_C.start();
                     EditText editText = findViewById(R.id.editTextSave);
                     editText.append(playC.getText());
-                    playB.setBackgroundColor(Color.RED);
+                    playA.setBackgroundColor(Color.RED);
                     playB.setBackgroundColor(Color.RED);
                     playC.setBackgroundColor(Color.GREEN);
                     playD.setBackgroundColor(Color.RED);
@@ -88,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
                     Sound_D.start();
                     EditText editText = findViewById(R.id.editTextSave);
                     editText.append(playD.getText());
-                    playB.setBackgroundColor(Color.RED);
+                    playA.setBackgroundColor(Color.RED);
                     playB.setBackgroundColor(Color.RED);
                     playC.setBackgroundColor(Color.RED);
                     playD.setBackgroundColor(Color.GREEN);
@@ -104,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
                     Sound_E.start();
                     EditText editText = findViewById(R.id.editTextSave);
                     editText.append(playE.getText());
-                    playB.setBackgroundColor(Color.RED);
+                    playA.setBackgroundColor(Color.RED);
                     playB.setBackgroundColor(Color.RED);
                     playC.setBackgroundColor(Color.RED);
                     playD.setBackgroundColor(Color.RED);
@@ -119,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
                     Sound_F.start();
                     EditText editText = findViewById(R.id.editTextSave);
                     editText.append(playF.getText());
-                    playB.setBackgroundColor(Color.RED);
+                    playA.setBackgroundColor(Color.RED);
                     playB.setBackgroundColor(Color.RED);
                     playC.setBackgroundColor(Color.RED);
                     playD.setBackgroundColor(Color.RED);

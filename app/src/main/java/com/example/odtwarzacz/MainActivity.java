@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
             out_writer.close();
 
             Toast.makeText(this,"Zapisano", Toast.LENGTH_LONG).show();
+            text.setText("");
 
         } catch (Exception e) {
             Toast.makeText(this,"BLAD", Toast.LENGTH_LONG).show();;
